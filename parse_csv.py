@@ -14,7 +14,7 @@ csv_data = []
 with open(sys.argv[1]) as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        csv_data.append(row)
+        csv_data.append(dict(row))
  
 with open(sys.argv[1] + '.yml', 'w') as outfile:
     outfile.write(yaml.dump({'raw_data': csv_data}))
